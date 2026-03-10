@@ -1,4 +1,5 @@
-abstract class Funcionario {
+package src.com.gerenciamento.model;
+public abstract class Funcionario {
 
     private String nome;
     private String cpf;
@@ -41,12 +42,12 @@ abstract class Funcionario {
                 this.cpf = novoCpf;
             }
             else {
-                System.out.print("CPF INVÁLDIO");
+                System.out.print("CPF INVÁLIDO");
             }
             
         }
         else {
-            System.out.print("CPF INVÁLDIO");
+            System.out.print("CPF INVÁLIDO");
         }
     } 
 
@@ -58,12 +59,10 @@ abstract class Funcionario {
 
     //Métodos:
 
-    abstract double calcularSalario();
+    public abstract double calcularSalario();
 
-    public void exibirResumo() {
-        System.out.print("Nome: " + getNome());
-        System.out.print("\nCPF: " + getCpf());
-        System.out.print("\nSalario: " + calcularSalario());
+    public String exibirResumo() {
+        return "Nome: " + getNome() + "\nCpf: " + getCpf() + "\nSalario: " + calcularSalario() + "\n";
     }
 
 }

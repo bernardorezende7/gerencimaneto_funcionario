@@ -1,4 +1,6 @@
-
+package com.gerenciamento.model;
+import com.gerenciamento.interfaces.Tributavel;
+import com.gerenciamento.exceptions.DadosInvalidosException;
 
 public class FuncionarioCLT extends Funcionario implements Tributavel {
 
@@ -6,6 +8,9 @@ public class FuncionarioCLT extends Funcionario implements Tributavel {
 
     public FuncionarioCLT(String nome, String cpf, double salarioBase, double percentualBonus) {
         super(nome, cpf, salarioBase);
+        if(salarioBase < 0 ) {
+            throw new DadosInvalidosException("Erro! Salário base não pode ser negativo!");
+        }
         this.percentualBonus = percentualBonus;
     }
 
